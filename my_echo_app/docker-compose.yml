@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  backend:
+    build: ./echo_websocket
+    ports:
+      - 8080:8080
+  
+  invoker:
+    build: ./echo_invoker
+    network_mode: host
+    depends_on:
+      - backend
+    
